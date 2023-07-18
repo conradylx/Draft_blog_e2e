@@ -25,7 +25,9 @@ THIRD_PARTY_APPS = [
     "rest_framework_swagger",
 ]
 
-MY_APPS = []
+MY_APPS = [
+    "core",
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
