@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "backend"
+version = "1"
+description = ""
+authors = ["Konrad <konrad.bakowsky@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.3"
+djangorestframework = "^3.14.0"
+psycopg2-binary = "^2.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

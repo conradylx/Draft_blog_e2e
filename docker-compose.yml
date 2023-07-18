@@ -1,0 +1,56 @@
+version: "3"
+services:
+  backend:
+    container_name: backend
+    restart: always
+    build: backend
+    image: backend:prod
+    entrypoint: "/app/docker_entrypoints/run_backend.sh"
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    networks:
+      default:
+        ipv4_address: 172.16.0.4
+
+  frontend:
+    container_name: frontend
+    restart: always
+    build: frontend
+    image: frontend:prod
+    depends_on:
+      - backend
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend/:/app
+      - /app/node_modules
+    networks:
+      default:
+        ipv4_address: 172.16.0.2
+
+  db:
+    container_name: db
+    image: postgres:latest
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    env_file: ./env.db
+    restart: always
+    ports:
+      - "996:5432"
+    networks:
+      default:
+        ipv4_address: 172.16.0.3
+
+volumes:
+  postgres-data:
+    driver: local
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: "172.16.0.0/24"
