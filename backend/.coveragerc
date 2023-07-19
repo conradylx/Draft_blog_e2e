@@ -1,0 +1,18 @@
+[run]
+omit =
+    */blog_backend/*
+    */urls/*
+    */migrations/*
+    */tests/*
+    */__init__.py
+    */tests.py
+    */apps.py
+    */urls.py
+    */manage.py
+ 
+[report]
+exclude_lines =
+    def __unicode__
+    if setttings.TESTING
+    def __repr__
+    def __str__
