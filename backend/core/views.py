@@ -1,7 +1,24 @@
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics, permissions
 from .models import Post
-from .serializers import PostSerializer
+from .serializers import PostSerializer, UserSerializer
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+
+class RegisterView(generics.CreateAPIView):
+    model = get_user_model()
+    permission_classes = [permissions.AllowAny]
+    serializer_class = UserSerializer
+
+    @swagger_auto_schema(
+        operation_description="Create new user",
+        request_body=UserSerializer(),
+        responses={201: UserSerializer()},
+    )
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
 
 
 class PostListAPIView(generics.ListAPIView):
