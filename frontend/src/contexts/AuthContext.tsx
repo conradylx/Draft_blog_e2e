@@ -2,12 +2,13 @@ import React, { createContext, ReactNode, useState } from 'react'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
-interface ISignIn {
+interface ICredentials {
   username: string
   password: string
 }
 export interface IAuthContextProps {
-  signIn: (payload: ISignIn) => void
+  signIn: (payload: ICredentials) => void
+  signUp: (payload: ICredentials) => void
   signOut: () => void
   error: boolean
 }
@@ -25,7 +26,7 @@ const removeCookies = () => {
 
 const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) => {
   const [error, setError] = useState(false)
-  const signIn = async (payload: ISignIn) => {
+  const signIn = async (payload: ICredentials) => {
     return await axios.post(
       "http://localhost:8000/api/token/",
       payload
@@ -38,10 +39,19 @@ const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) 
     })
   };
 
+  const signUp = async (payload: ICredentials) => {
+    return await axios.post(
+      "http://localhost:8000/core/register/",
+      payload
+    ).catch(error => {
+      setError(true)
+    })
+  };
+
   const signOut = (): void => removeCookies()
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, error }}>
+    <AuthContext.Provider value={{ signIn, signUp, signOut, error }}>
       {children}
     </AuthContext.Provider>
   );
