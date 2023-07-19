@@ -8,6 +8,7 @@ interface ICredentials {
 }
 export interface IAuthContextProps {
   signIn: (payload: ICredentials) => void
+  signUp: (payload: ICredentials) => void
   signOut: () => void
   error: boolean
 }
@@ -40,7 +41,7 @@ const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) 
 
   const signUp = async (payload: ICredentials) => {
     return await axios.post(
-      "http://localhost:8000/api/token/",
+      "http://localhost:8000/core/register/",
       payload
     ).catch(error => {
       setError(true)
@@ -50,7 +51,7 @@ const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) 
   const signOut = (): void => removeCookies()
 
   return (
-    <AuthContext.Provider value={{ signIn, signOut, error }}>
+    <AuthContext.Provider value={{ signIn, signUp, signOut, error }}>
       {children}
     </AuthContext.Provider>
   );
