@@ -122,3 +122,13 @@ STATIC_ROOT = os.getenv("STATIC_ROOT", "static")
 MEDIA_ROOT = os.getenv("MEDIA_ROOT", "static/media/")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Auth Token [Bearer {JWT}]": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+        }
+    }
+}
