@@ -4,7 +4,7 @@ import jwtInterceptor from '../../../utils/interceptors/jwtInterceptor'
 import { useQuery } from 'react-query'
 import Typography from '@mui/material/Typography'
 import Tile from '../../organisms/Tile'
-import { Container } from './Home.styles'
+import { Container, StyledTypography } from './Home.styles'
 
 const fetchPosts = async (): Promise<IPost[]> => {
   const response = await jwtInterceptor.get('http://localhost:8000/core/posts')
@@ -16,16 +16,16 @@ const Home = () => {
     useQuery<IPost[]>('postsFetch', fetchPosts)
 
   if (isLoading) {
-    return <Container>Loading...</Container>
+    return <StyledTypography mt={10}>Loading...</StyledTypography>
   }
 
   if (isError || !posts) {
-    return <Container>Error fetching posts</Container>
+    return <StyledTypography mt={10}>Error fetching posts</StyledTypography>
   }
 
   return (
     <Container>
-      <Typography variant='h3' mb={4}>Posts</Typography>
+      <Typography variant='h3' mb={4} mt={10}>Posts</Typography>
       <Tile posts={posts} />
     </Container>
   )
