@@ -25,8 +25,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "webpack serve --open",
-    "build": "webpack --config webpack.config.js --stats-children"
+    "start": "webpack-dev-server --mode development",
+    "build" : "webpack --mode production"
   },
   "eslintConfig": {
     "extends": [

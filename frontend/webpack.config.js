@@ -1,13 +1,10 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.tsx',
-  devtool: 'inline-source-map',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+  entry: {
+    app: './src/index.tsx'
   },
   module: {
     rules: [
@@ -23,7 +20,8 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        use: 'ts-loader', exclude: /node_modules/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.svg$/,
@@ -40,15 +38,23 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', 'jsx'],
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './dist/index.html' }),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      title: 'Frontend'
+    }),
   ],
   devServer: {
-    static: path.join(__dirname, "dist"),
-    compress: true,
-    port: 3001,
+    static: path.join(__dirname, "/dist"),
+    compress: false,
+    host: "0.0.0.0",
+    port: 3000,
     historyApiFallback: true,
-  },
-}
+  }
+};
