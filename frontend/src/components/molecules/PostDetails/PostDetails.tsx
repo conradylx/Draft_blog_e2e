@@ -5,6 +5,7 @@ import { useQuery } from 'react-query'
 import jwtInterceptor from '../../../utils/interceptors/jwtInterceptor'
 import Typography from '@mui/material/Typography'
 import { Container, StyledTypography } from './PostDetails.styles'
+import SanitizeContent from '../../atoms/SanitizeContent'
 
 const fetchSinglePost = async (postPk: number) => {
   const response = await jwtInterceptor.get(`http://localhost:8000/core/posts/${postPk}`)
@@ -25,8 +26,7 @@ const PostDetails = () => {
     <Container>
       <Typography variant='h5' mt={2} mb={4}>Fetched data for ID: {pk}</Typography>
       <Typography variant='h3'>Title: {data.title}</Typography>
-      <Typography>{data.content}</Typography>
-      xxx
+      <SanitizeContent content={data.content} />
     </Container>
   )
 }

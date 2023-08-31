@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
 
 interface IPrivateRoute {
@@ -7,11 +7,13 @@ interface IPrivateRoute {
 
 const PrivateRoute = ({ children }: IPrivateRoute) => {
   const cookie = Cookies.get('access_token') || ''
-  return cookie && cookie.length > 0 ? (
+  // TODO: Add protection for accessing signin/signup pages while logged in
+
+  return cookie ? (
     <>{children}</>
   ) : (
-    <Navigate to="/signin" replace={true} />
-  );
-};
+    <Navigate to='/signin' replace={true} />
+  )
+}
 
-export default PrivateRoute;
+export default PrivateRoute

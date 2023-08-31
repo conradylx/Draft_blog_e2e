@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Typography variant='h3' mb={4} mt={10}>Posts</Typography>
+      <Typography variant='h3' mb={4}>Posts</Typography>
       <Tile posts={posts} />
     </Container>
   )

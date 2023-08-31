@@ -12,17 +12,17 @@ import { StyledLink } from './Navbar.styles'
 export default function Navbar({ children }: INavbarProps) {
   const location = useLocation()
   const { signOut } = useContext(AuthContext) as IAuthContextProps
-  const isHomePage = location.pathname === '/' || location.pathname.includes('/details')
+  const isNavbarEnabled = !['/signin', '/signup'].includes(location.pathname);
 
   return (
     <>
-      {isHomePage &&
-      <Box sx={{ flexGrow: 1 }}>
+      {isNavbarEnabled &&
+      <Box sx={{ flexGrow: 1 }} mt={10}>
         <AppBar>
           <Toolbar>
             <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
               <StyledLink href="/" variant="body1" mr={2}>Home</StyledLink>
-              <StyledLink href="#" variant="body1">Add Post</StyledLink>
+              <StyledLink href="/addpost" variant="body1">Add Post</StyledLink>
             </Typography>
             <StyledLink href="/signin" variant="body1" onClick={signOut}>Logout</StyledLink>
           </Toolbar>

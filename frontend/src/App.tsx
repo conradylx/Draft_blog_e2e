@@ -8,6 +8,7 @@ import Home from './components/views/Home/Home'
 import Navbar from './components/organisms/Navbar/Navbar'
 import PostDetails from './components/molecules/PostDetails/PostDetails'
 import PrivateRoute from './utils/PrivateRoute'
+import AddPost from './components/organisms/AddPost/AddPost'
 
 const queryClient = new QueryClient()
 
@@ -18,8 +19,17 @@ function App() {
         <Router>
           <Navbar>
             <Routes>
-              <Route path='/signin' element={<SignIn />} />
-              <Route path='/signup' element={<SignUp />} />
+              <Route path='/signin' element={
+                <PrivateRoute>
+                  <SignIn />
+                </PrivateRoute>}
+              />
+              <Route path='/signup' element={
+                <PrivateRoute>
+                  <SignUp />
+                </PrivateRoute>}
+              />
+              <Route path='/addpost' element={<AddPost />} />
               <Route path='/details/:pk' element={
                 <PrivateRoute>
                   <PostDetails />
