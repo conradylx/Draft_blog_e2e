@@ -19,16 +19,8 @@ function App() {
         <Router>
           <Navbar>
             <Routes>
-              <Route path='/signin' element={
-                <PrivateRoute>
-                  <SignIn />
-                </PrivateRoute>}
-              />
-              <Route path='/signup' element={
-                <PrivateRoute>
-                  <SignUp />
-                </PrivateRoute>}
-              />
+              <Route path='/signin' element={<SignIn />} />
+              <Route path='/signup' element={<SignUp />} />
               <Route path='/addpost' element={<AddPost />} />
               <Route path='/details/:pk' element={
                 <PrivateRoute>
