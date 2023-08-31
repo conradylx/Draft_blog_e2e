@@ -44,7 +44,9 @@ export default function SignIn() {
     if ((payload.username !== '' || payload.password) !== '') {
       await signIn(payload)
       const token = Cookies.get('access_token')
-      if (token) navigate('/')
+      if (token) {
+        navigate('/')
+      }
     }
   }
 

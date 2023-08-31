@@ -1,8 +1,8 @@
 import * as React from 'react'
 import Grid from '@mui/material/Grid'
-import { IPost, ITile } from '../../utils/interfaces/posts_interfaces'
-import PostDetails from '../molecules/PostDetails'
-import Box from '@mui/material/Box'
+import { IPost, ITile } from '../../../utils/interfaces/posts_interfaces'
+import TileData from '../../molecules/TileData'
+import { StyledLink } from './Tile.styles'
 
 export default function Tile({ posts }: ITile) {
   return (
@@ -10,9 +10,9 @@ export default function Tile({ posts }: ITile) {
       <Grid item xs={12}>
         <Grid container justifyContent='center' spacing={2}>
           {posts?.map((post: IPost) => (
-            <Box key={post.id} >
-              <PostDetails post={post} />
-            </Box>
+            <StyledLink to={`/details/${post.id}`} key={post.id}>
+              <TileData post={post} />
+            </StyledLink>
           ))}
         </Grid>
       </Grid>

@@ -3,7 +3,7 @@ import { IPost } from '../../../utils/interfaces/posts_interfaces'
 import jwtInterceptor from '../../../utils/interceptors/jwtInterceptor'
 import { useQuery } from 'react-query'
 import Typography from '@mui/material/Typography'
-import Tile from '../../organisms/Tile'
+import Tile from '../../organisms/Tile/Tile'
 import { Container, StyledTypography } from './Home.styles'
 
 const fetchPosts = async (): Promise<IPost[]> => {

@@ -33,7 +33,7 @@ const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) 
     ).then(r => {
       Cookies.set('access_token', r.data.access)
       Cookies.set('refresh_token', r.data.refresh)
-    }).catch(error => {
+    }).catch(() => {
       setError(true)
       removeCookies()
     })
@@ -43,7 +43,7 @@ const AuthContextProvider: React.FC<IAuthContextProviderProps> = ({ children }) 
     return await axios.post(
       "http://localhost:8000/core/register/",
       payload
-    ).catch(error => {
+    ).catch(() => {
       setError(true)
     })
   };
