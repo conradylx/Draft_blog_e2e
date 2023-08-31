@@ -5,7 +5,7 @@ import { AuthContextProvider } from './contexts/AuthContext'
 import SignUp from './components/views/SignUp'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import Home from './components/views/Home/Home'
-import Navbar from './components/organisms/Navbar'
+import Navbar from './components/organisms/Navbar/Navbar'
 import PostDetails from './components/molecules/PostDetails/PostDetails'
 import PrivateRoute from './utils/PrivateRoute'
 
