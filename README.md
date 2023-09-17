@@ -42,7 +42,7 @@ To run this project locally, follow these steps:
 1. Clone the repository to your computer.
 2. Navigate to the project directory.
 
-### Install and run Django:
+### Install and run:
 
 ```shell
 docker compose build
