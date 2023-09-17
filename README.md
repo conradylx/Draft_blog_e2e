@@ -6,6 +6,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue.svg)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Latest-yellow.svg)
 ![Material-UI](https://img.shields.io/badge/Material--UI-5.14.1-blueviolet.svg)
+
 This project serves as an example web application that utilizes React and Django technologies for managing user posts and implements user authentication using JWT tokens.
 
 ## Project Features
