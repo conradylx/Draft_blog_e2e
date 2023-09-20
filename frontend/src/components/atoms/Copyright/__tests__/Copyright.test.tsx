@@ -1,12 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../../utils/testUtils";
 
-import Copyright from "../components/atoms/Copyright";
+import Copyright from "../Copyright";
 
-describe(Copyright, () => {
+describe("Copyright Component", () => {
   it("should display copyright text", () => {
     render(<Copyright />);
     const copyrightText = screen.getByText(/Copyright ©/i);
-    const blogName = screen.getByText("Draft Blog");
+    const blogName = screen.getByText(/draft blog/i);
     expect(copyrightText).toBeInTheDocument();
     expect(blogName).toBeInTheDocument();
   });

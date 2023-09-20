@@ -1,7 +1,7 @@
-import SignIn from "../components/views/SignIn";
-import SignUp from "../components/views/SignUp";
-import { AuthContextProvider } from "../contexts/AuthContext";
-import { fireEvent, render, screen, waitFor } from "../utils/testUtils";
+import SignIn from "../../components/views/SignIn";
+import SignUp from "../../components/views/SignUp";
+import { AuthContextProvider } from "../AuthContext";
+import { fireEvent, render, screen, waitFor } from "../../utils/testUtils";
 
 test("should sign in user", async () => {
   render(

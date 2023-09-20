@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
 import { IPostDetailsProps } from '../../utils/interfaces/posts_interfaces'
-import SanitizeContent from '../atoms/SanitizeContent'
+import SanitizeContent from '../atoms/SanitizeContent/SanitizeContent'
 
 const TileData = ({ post }: IPostDetailsProps) => {
   return (

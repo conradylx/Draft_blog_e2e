@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import SanitizeContent from "../../atoms/SanitizeContent";
+import SanitizeContent from "../../atoms/SanitizeContent/SanitizeContent";
 
 const fetchSinglePost = async (postPk: number) => {
   const response = await jwtInterceptor.get(

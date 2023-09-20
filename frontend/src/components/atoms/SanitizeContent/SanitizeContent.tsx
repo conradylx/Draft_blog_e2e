@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@mui/material/Box'
-import { ISanitizeContent } from '../../utils/interfaces/posts_interfaces'
+import { ISanitizeContent } from '../../../utils/interfaces/posts_interfaces'
 
 function SanitizeContent({ content }: ISanitizeContent) {
   const sanitizeContent = (html: string) => {

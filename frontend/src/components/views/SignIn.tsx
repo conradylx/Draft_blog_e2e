@@ -13,7 +13,7 @@ import { Alert, styled } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import logo from "../../assets/logo.svg";
-import Copyright from "../atoms/Copyright";
+import Copyright from "../atoms/Copyright/Copyright";
 
 const ImageBox = styled(Box)({
   display: "flex",

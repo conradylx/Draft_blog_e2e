@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Copyright from "../atoms/Copyright";
+import Copyright from "../atoms/Copyright/Copyright";
 import { useNavigate } from "react-router-dom";
 import { AuthContext, IAuthContextProps } from "../../contexts/AuthContext";
 import { styled } from "@mui/material";

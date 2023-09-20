@@ -3,9 +3,9 @@ module.exports = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["./testSetup.ts"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node", "svg"],
+  testRegex: "src/.*\\.test\\.(ts|tsx)$",
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
     "\\.(svg)$": "<rootDir>/svgTransform.js",
   },
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
 };
