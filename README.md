@@ -14,7 +14,7 @@ This project serves as an example web application that utilizes React and Django
 ## Project Features
 
 - Admin users can create, edit, and delete posts.
-- Standard users can add and view posts.
+- Standard users can view posts.
 - User authentication is secured using JWT tokens.
 - The project includes Swagger UI with documentation for available Django API endpoints.
 
